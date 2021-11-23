@@ -1,0 +1,47 @@
+﻿@model IEnumerable<UPC1_20190140098.Models.TableNota>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Nota</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalHarga)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdNotaNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTransaksiNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalHarga)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdNotaNavigation.IdNota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTransaksiNavigation.IdTransaksii)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdNota">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdNota">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdNota">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,41 @@
+﻿@model UPC1_20190140098.Models.TableNota
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>TableNota</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdNota" class="control-label"></label>
+                <select asp-for="IdNota" class ="form-control" asp-items="ViewBag.IdNota"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdTransaksi" class="control-label"></label>
+                <select asp-for="IdTransaksi" class ="form-control" asp-items="ViewBag.IdTransaksi"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalHarga" class="control-label"></label>
+                <input asp-for="TotalHarga" class="form-control" />
+                <span asp-validation-for="TotalHarga" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

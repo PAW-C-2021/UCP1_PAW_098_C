@@ -1,0 +1,53 @@
+﻿@model IEnumerable<UPC1_20190140098.Models.PetugasApotek>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Petugas Apotek</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdObatNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdPembeliNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdObatNavigation.IdObat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPembeliNavigation.IdPembeli)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdApoteker">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdApoteker">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdApoteker">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
